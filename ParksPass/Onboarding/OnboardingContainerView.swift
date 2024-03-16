@@ -10,15 +10,20 @@ struct OnboardingContainer {
   @ObservableState
   struct State: Equatable {
     var onboarding = OnboardingReducer.State()
+    var login = Login.State()
   }
   
   enum Action {
     case onboarding(OnboardingReducer.Action)
+    case login(Login.Action)
   }
   
   var body: some Reducer<State, Action> {
     Scope(state: \.onboarding, action: \.onboarding) {
       OnboardingReducer()
+    }
+    Scope(state: \.login, action: \.login) {
+      Login()
     }
   }
 }
@@ -34,13 +39,7 @@ struct OnboardingContainerView: View {
           isFirstAppLaunch = false
         }
     } else {
-      MainView()
+      LoginView(store: store.scope(state: \.login, action: \.login))
     }
-  }
-}
-
-struct MainView: View {
-  var body: some View {
-    Text("Main App View")
   }
 }
