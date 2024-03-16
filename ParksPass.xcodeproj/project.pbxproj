@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		169513662BA618D0004A11D5 /* ParksPassApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513652BA618D0004A11D5 /* ParksPassApp.swift */; };
-		169513682BA618D0004A11D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513672BA618D0004A11D5 /* ContentView.swift */; };
 		1695136A2BA618D1004A11D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169513692BA618D1004A11D5 /* Assets.xcassets */; };
 		1695136D2BA618D1004A11D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1695136C2BA618D1004A11D5 /* Preview Assets.xcassets */; };
 		169513772BA618D2004A11D5 /* ParksPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513762BA618D2004A11D5 /* ParksPassTests.swift */; };
 		169513812BA618D2004A11D5 /* ParksPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513802BA618D2004A11D5 /* ParksPassUITests.swift */; };
 		169513832BA618D2004A11D5 /* ParksPassUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513822BA618D2004A11D5 /* ParksPassUITestsLaunchTests.swift */; };
 		169513912BA61988004A11D5 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 169513902BA61988004A11D5 /* ComposableArchitecture */; };
+		169513942BA61B15004A11D5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513932BA61B15004A11D5 /* OnboardingView.swift */; };
+		169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513982BA6437A004A11D5 /* OnboardingContainerView.swift */; };
+		1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695139B2BA64B39004A11D5 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,6 @@
 /* Begin PBXFileReference section */
 		169513622BA618D0004A11D5 /* ParksPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParksPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169513652BA618D0004A11D5 /* ParksPassApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksPassApp.swift; sourceTree = "<group>"; };
-		169513672BA618D0004A11D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		169513692BA618D1004A11D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1695136C2BA618D1004A11D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		169513722BA618D2004A11D5 /* ParksPassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParksPassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +46,9 @@
 		1695137C2BA618D2004A11D5 /* ParksPassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParksPassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		169513802BA618D2004A11D5 /* ParksPassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksPassUITests.swift; sourceTree = "<group>"; };
 		169513822BA618D2004A11D5 /* ParksPassUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksPassUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		169513932BA61B15004A11D5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		169513982BA6437A004A11D5 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		1695139B2BA64B39004A11D5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,9 @@
 		169513642BA618D0004A11D5 /* ParksPass */ = {
 			isa = PBXGroup;
 			children = (
+				1695139A2BA64B2C004A11D5 /* Login */,
+				169513922BA61B09004A11D5 /* Onboarding */,
 				169513652BA618D0004A11D5 /* ParksPassApp.swift */,
-				169513672BA618D0004A11D5 /* ContentView.swift */,
 				169513692BA618D1004A11D5 /* Assets.xcassets */,
 				1695136B2BA618D1004A11D5 /* Preview Content */,
 			);
@@ -127,6 +132,23 @@
 				169513822BA618D2004A11D5 /* ParksPassUITestsLaunchTests.swift */,
 			);
 			path = ParksPassUITests;
+			sourceTree = "<group>";
+		};
+		169513922BA61B09004A11D5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				169513982BA6437A004A11D5 /* OnboardingContainerView.swift */,
+				169513932BA61B15004A11D5 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1695139A2BA64B2C004A11D5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1695139B2BA64B39004A11D5 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169513682BA618D0004A11D5 /* ContentView.swift in Sources */,
+				169513942BA61B15004A11D5 /* OnboardingView.swift in Sources */,
+				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
+				1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */,
 				169513662BA618D0004A11D5 /* ParksPassApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
