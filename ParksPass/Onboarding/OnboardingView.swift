@@ -38,7 +38,9 @@ struct OnboardingReducer {
     var login: Login.State?
   }
   
-  enum Action {
+  enum Action: BindableAction {
+    case binding(BindingAction<State>)
+    
     case nextButtonDidTap(Int)
     case selectPage(Int)
     case login(PresentationAction<Login.Action>)
@@ -47,6 +49,8 @@ struct OnboardingReducer {
   var body: some Reducer<State, Action> {
     Reduce { state, action in
       switch action {
+      case .binding:
+        return .none
       case .nextButtonDidTap(let index):
         if index < state.onboardingPages.count - 1 {
           state.selectedPage += 1
@@ -69,7 +73,7 @@ struct OnboardingView: View {
   @Bindable var store: StoreOf<OnboardingReducer>
   
   var body: some View {
-    TabView(selection: $store.selectedPage.sending(\.selectPage)) {
+    TabView(selection: $store.selectedPage) {
       ForEach(store.onboardingPages.indices, id: \.self) { index in
         VStack(spacing: .zero) {
           Image(store.onboardingPages[index].image)

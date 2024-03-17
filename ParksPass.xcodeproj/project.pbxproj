@@ -19,6 +19,7 @@
 		1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695139B2BA64B39004A11D5 /* LoginView.swift */; };
 		1695139F2BA64E50004A11D5 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695139E2BA64E50004A11D5 /* Asset.swift */; };
 		169513A12BA64E5F004A11D5 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513A02BA64E5F004A11D5 /* Images.swift */; };
+		169513A42BA66EEF004A11D5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513A32BA66EEF004A11D5 /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1695139B2BA64B39004A11D5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1695139E2BA64E50004A11D5 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		169513A02BA64E5F004A11D5 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		169513A32BA66EEF004A11D5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				1695139B2BA64B39004A11D5 /* LoginView.swift */,
+				169513A32BA66EEF004A11D5 /* RegisterView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				169513942BA61B15004A11D5 /* OnboardingView.swift in Sources */,
 				169513A12BA64E5F004A11D5 /* Images.swift in Sources */,
 				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
+				169513A42BA66EEF004A11D5 /* RegisterView.swift in Sources */,
 				1695139F2BA64E50004A11D5 /* Asset.swift in Sources */,
 				1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */,
 				169513662BA618D0004A11D5 /* ParksPassApp.swift in Sources */,
