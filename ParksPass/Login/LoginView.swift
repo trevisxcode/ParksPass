@@ -34,65 +34,79 @@ struct Login {
 
 struct LoginView: View {
   @Bindable var store: StoreOf<Login>
+  @EnvironmentObject var vm: UserAuthModel
+  @State var pushActive = false
   
   var body: some View {
-      VStack {
-        Text("Sign In")
-          .font(.title)
-          .padding(.top, 36)
-        Text("Log in and access your personalized ParkPass experience")
-          .frame(maxWidth: .infinity, alignment: .center)
-        TextField("Email", text: $store.email)
+    container
+  }
+  
+  private var container: some View {
+    VStack {
+      Text("Sign In")
+        .font(.title)
+        .padding(.top, 36)
+      Text("Log in and access your personalized ParkPass experience")
+        .frame(maxWidth: .infinity, alignment: .center)
+      TextField("Email", text: $store.email)
+        .padding()
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .autocapitalization(.none)
+        .keyboardType(.emailAddress)
+      
+      SecureField("Password", text: $store.password)
+        .padding()
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+      
+      Spacer()
+      // Login Button
+      Button(action: {
+        // Perform login action
+      }) {
+        Text("Login")
+          .frame(maxWidth: .infinity)
           .padding()
-          .textFieldStyle(RoundedBorderTextFieldStyle())
-          .autocapitalization(.none)
-          .keyboardType(.emailAddress)
-        
-        SecureField("Password", text: $store.password)
-          .padding()
-          .textFieldStyle(RoundedBorderTextFieldStyle())
-        
-        Spacer()
-        // Login Button
-        Button(action: {
-          // Perform login action
-        }) {
-          Text("Login")
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(24)
-        }
-        .padding(.horizontal, 40)
-        
-        Text("Or")
-          .font(.caption)
-        
-        // Sign in with Google Button
-        Button(action: {
-          // Perform Google sign-in action
-        }) {
-          Text("Sign in with Google")
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.red)
-            .foregroundColor(.white)
-            .cornerRadius(24)
-        }
-        .padding(.horizontal, 40)
-        
-        NavigationLink(
-          destination: RegisterView(
-            store: store.scope(state: \.register, action: \.register)
-          )
-        ) {
-          Text("Don't have an account? Sign up")
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal, 40)
-        }
+          .background(Color.blue)
+          .foregroundColor(.white)
+          .cornerRadius(24)
       }
-      .padding()
+      .padding(.horizontal, 40)
+      
+      Text("Or")
+        .font(.caption)
+      
+      // Sign in with Google Button
+      Button(action: {
+        vm.signIn()
+      }) {
+        Text("Sign in with Google")
+          .frame(maxWidth: .infinity)
+          .padding()
+          .background(Color.red)
+          .foregroundColor(.white)
+          .cornerRadius(24)
+      }
+      .padding(.horizontal, 40)
+      
+      NavigationLink(
+        destination: RegisterView(
+          store: store.scope(state: \.register, action: \.register)
+        )
+      ) {
+        Text("Don't have an account? Sign up")
+          .frame(maxWidth: .infinity)
+          .padding(.horizontal, 40)
+      }
+      
+//      NavigationLink(destination: FeedView(), isActive: self.$vm.isLoggedIn) {
+//        EmptyView()
+//      }
+//      .hidden()
     }
-//  }
+    .padding()
+    .fullScreenCover(isPresented: $vm.isLoggedIn) {
+      FeedView()
+    }
+  }
+  
 }
