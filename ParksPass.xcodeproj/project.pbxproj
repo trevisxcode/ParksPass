@@ -25,6 +25,9 @@
 		169513B72BA68820004A11D5 /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513B62BA68820004A11D5 /* UserAuthModel.swift */; };
 		169513B92BA68C07004A11D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 169513B82BA68C07004A11D5 /* GoogleService-Info.plist */; };
 		169513BE2BA68E77004A11D5 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513BD2BA68E77004A11D5 /* FeedView.swift */; };
+		169513C02BA6B330004A11D5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */; };
+		169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */; };
+		169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C52BA6B58C004A11D5 /* FeedCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		169513B62BA68820004A11D5 /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
 		169513B82BA68C07004A11D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		169513BD2BA68E77004A11D5 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		169513C52BA6B58C004A11D5 /* FeedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				169513BD2BA68E77004A11D5 /* FeedView.swift */,
+				169513C52BA6B58C004A11D5 /* FeedCardView.swift */,
+				169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */,
+				169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -337,8 +346,11 @@
 				169513A12BA64E5F004A11D5 /* Images.swift in Sources */,
 				169513B72BA68820004A11D5 /* UserAuthModel.swift in Sources */,
 				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
+				169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */,
 				169513A42BA66EEF004A11D5 /* RegisterView.swift in Sources */,
+				169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */,
 				1695139F2BA64E50004A11D5 /* Asset.swift in Sources */,
+				169513C02BA6B330004A11D5 /* ProfileHeaderView.swift in Sources */,
 				1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */,
 				169513662BA618D0004A11D5 /* ParksPassApp.swift in Sources */,
 			);

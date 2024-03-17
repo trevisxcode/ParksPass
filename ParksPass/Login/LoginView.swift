@@ -10,23 +10,29 @@ struct Login {
     var email = ""
     var password = ""
     var register = Register.State()
+    var feed = Feed.State()
   }
   
   enum Action: BindableAction {
     case binding(BindingAction<State>)
     case login
     case register(Register.Action)
+    case feed(Feed.Action)
   }
   
   var body: some ReducerOf<Self> {
     Scope(state: \.register, action: \.register) {
       Register()
     }
+    Scope(state: \.feed, action: \.feed) {
+      Feed()
+    }
     Reduce { state, action in
       switch action {
       case .binding(_): return .none
       case .login: return .none
       case .register(_): return .none
+      case .feed: return .none
       }
     }
   }
@@ -35,7 +41,6 @@ struct Login {
 struct LoginView: View {
   @Bindable var store: StoreOf<Login>
   @EnvironmentObject var vm: UserAuthModel
-  @State var pushActive = false
   
   var body: some View {
     container
@@ -105,7 +110,7 @@ struct LoginView: View {
     }
     .padding()
     .fullScreenCover(isPresented: $vm.isLoggedIn) {
-      FeedView()
+      FeedView(store: store.scope(state: \.feed, action: \.feed))
     }
   }
   

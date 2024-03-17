@@ -11,27 +11,7 @@ class UserAuthModel: ObservableObject {
   @Published var isLoggedIn: Bool = false
   @Published var errorMessage: String = ""
   
-  init(){
-    check()
-  }
-  
-  func checkStatus(){
-    if(GIDSignIn.sharedInstance.currentUser != nil){
-      let user = GIDSignIn.sharedInstance.currentUser
-      guard let user = user else { return }
-      let givenName = user.profile?.givenName
-      let profilePicUrl = user.profile!.imageURL(withDimension: 100)!.absoluteString
-      self.givenName = givenName ?? ""
-      self.profilePicUrl = profilePicUrl
-      self.isLoggedIn = true
-    }else{
-      self.isLoggedIn = false
-      self.givenName = "Not Logged In"
-      self.profilePicUrl =  ""
-    }
-  }
-  
-  func check(){
+  init() {
     GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
       if let error = error {
         self.errorMessage = "error: \(error.localizedDescription)"
@@ -41,44 +21,42 @@ class UserAuthModel: ObservableObject {
     }
   }
   
-  func signIn(){
-    
-    guard 
-      let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController
-//      let clientId = FirebaseApp.app()?.options.clientID
+  func checkStatus() {
+    if let user = GIDSignIn.sharedInstance.currentUser {
+      let givenName = user.profile?.givenName
+      let profilePicUrl = user.profile!.imageURL(withDimension: 100)!.absoluteString
+      self.givenName = givenName ?? ""
+      self.profilePicUrl = profilePicUrl
+      self.isLoggedIn = true
+    } else {
+      self.isLoggedIn = false
+      self.givenName = "Not Logged In"
+      self.profilePicUrl =  ""
+    }
+  }
+  
+  func signIn() {
+    guard
+      let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+      let presentingViewController = firstScene.windows.first?.rootViewController,
+      let clientId = FirebaseApp.app()?.options.clientID
     else { return }
-    
-    guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-    
-    let config = GIDConfiguration(clientID: clientID)
-    GIDSignIn.sharedInstance.configuration = config
-
-
-//    let signInConfig = GIDConfiguration.init(clientID: clientId)
+        
+    GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientId)
     GIDSignIn.sharedInstance.signIn(
       withPresenting: presentingViewController
     ) { [weak self] signInResult, error in
       guard let self = self else { return }
-
+      
       if let error = error {
         self.errorMessage = "error: \(error.localizedDescription)"
       }
       self.checkStatus()
     }
-//    GIDSignIn.sharedInstance.signIn(
-//      with: signInConfig,
-//      presenting: presentingViewController,
-//      callback: { user, error in
-//        if let error = error {
-//          self.errorMessage = "error: \(error.localizedDescription)"
-//        }
-//        self.checkStatus()
-//      }
-//    )
   }
   
-  func signOut(){
+  func signOut() {
     GIDSignIn.sharedInstance.signOut()
-    self.checkStatus()
+    checkStatus()
   }
 }
