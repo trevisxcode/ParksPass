@@ -28,6 +28,11 @@
 		169513C02BA6B330004A11D5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */; };
 		169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */; };
 		169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C52BA6B58C004A11D5 /* FeedCardView.swift */; };
+		169513C82BA6DCC1004A11D5 /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C72BA6DCC1004A11D5 /* ProfileDetailView.swift */; };
+		169513CA2BA6F4A5004A11D5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 169513C92BA6F4A5004A11D5 /* FirebaseFirestore */; };
+		169513CC2BA6F5E6004A11D5 /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CB2BA6F5E6004A11D5 /* UserProfileRepository.swift */; };
+		169513CE2BA6F674004A11D5 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CD2BA6F674004A11D5 /* SessionStore.swift */; };
+		169513D02BA77629004A11D5 /* EmailProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,10 @@
 		169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		169513C52BA6B58C004A11D5 /* FeedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardView.swift; sourceTree = "<group>"; };
+		169513C72BA6DCC1004A11D5 /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
+		169513CB2BA6F5E6004A11D5 /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
+		169513CD2BA6F674004A11D5 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailProfileDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				169513912BA61988004A11D5 /* ComposableArchitecture in Frameworks */,
+				169513CA2BA6F4A5004A11D5 /* FirebaseFirestore in Frameworks */,
 				169513B02BA684BF004A11D5 /* FirebaseAuth in Frameworks */,
 				169513B22BA68532004A11D5 /* GoogleSignIn in Frameworks */,
 			);
@@ -125,7 +135,7 @@
 			children = (
 				169513B32BA6862C004A11D5 /* Info.plist */,
 				169513BA2BA68E5E004A11D5 /* Feed */,
-				1695139A2BA64B2C004A11D5 /* Login */,
+				1695139A2BA64B2C004A11D5 /* AuthenticationFlow */,
 				169513922BA61B09004A11D5 /* Onboarding */,
 				1695139D2BA64E40004A11D5 /* Resource */,
 				169513652BA618D0004A11D5 /* ParksPassApp.swift */,
@@ -169,14 +179,19 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		1695139A2BA64B2C004A11D5 /* Login */ = {
+		1695139A2BA64B2C004A11D5 /* AuthenticationFlow */ = {
 			isa = PBXGroup;
 			children = (
+				169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */,
+				169513C72BA6DCC1004A11D5 /* ProfileDetailView.swift */,
+				169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */,
 				1695139B2BA64B39004A11D5 /* LoginView.swift */,
 				169513A32BA66EEF004A11D5 /* RegisterView.swift */,
+				169513CB2BA6F5E6004A11D5 /* UserProfileRepository.swift */,
 				169513B62BA68820004A11D5 /* UserAuthModel.swift */,
+				169513CD2BA6F674004A11D5 /* SessionStore.swift */,
 			);
-			path = Login;
+			path = AuthenticationFlow;
 			sourceTree = "<group>";
 		};
 		1695139D2BA64E40004A11D5 /* Resource */ = {
@@ -195,7 +210,6 @@
 				169513BD2BA68E77004A11D5 /* FeedView.swift */,
 				169513C52BA6B58C004A11D5 /* FeedCardView.swift */,
 				169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */,
-				169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -220,6 +234,7 @@
 				169513902BA61988004A11D5 /* ComposableArchitecture */,
 				169513AF2BA684BF004A11D5 /* FirebaseAuth */,
 				169513B12BA68532004A11D5 /* GoogleSignIn */,
+				169513C92BA6F4A5004A11D5 /* FirebaseFirestore */,
 			);
 			productName = ParksPass;
 			productReference = 169513622BA618D0004A11D5 /* ParksPass.app */;
@@ -347,11 +362,15 @@
 				169513B72BA68820004A11D5 /* UserAuthModel.swift in Sources */,
 				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
 				169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */,
+				169513C82BA6DCC1004A11D5 /* ProfileDetailView.swift in Sources */,
 				169513A42BA66EEF004A11D5 /* RegisterView.swift in Sources */,
 				169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */,
 				1695139F2BA64E50004A11D5 /* Asset.swift in Sources */,
+				169513CC2BA6F5E6004A11D5 /* UserProfileRepository.swift in Sources */,
+				169513CE2BA6F674004A11D5 /* SessionStore.swift in Sources */,
 				169513C02BA6B330004A11D5 /* ProfileHeaderView.swift in Sources */,
 				1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */,
+				169513D02BA77629004A11D5 /* EmailProfileDetailView.swift in Sources */,
 				169513662BA618D0004A11D5 /* ParksPassApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +746,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 169513A72BA680D8004A11D5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
+		};
+		169513C92BA6F4A5004A11D5 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

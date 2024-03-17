@@ -8,7 +8,8 @@ import GoogleSignIn
 @main
 struct ParksPassApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  @StateObject var userAuth: UserAuthModel =  UserAuthModel()
+  @StateObject var userAuth: UserAuthModel = UserAuthModel()
+  @StateObject var sessionStore: SessionStore = SessionStore()
   
   var body: some Scene {
     WindowGroup {
@@ -16,6 +17,7 @@ struct ParksPassApp: App {
         OnboardingContainer()
       })
       .environmentObject(userAuth)
+      .environmentObject(sessionStore)
     }
   }
 }
