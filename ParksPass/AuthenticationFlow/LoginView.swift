@@ -21,6 +21,7 @@ struct Login {
   }
   
   var body: some ReducerOf<Self> {
+    BindingReducer()
     Scope(state: \.register, action: \.register) {
       Register()
     }
@@ -41,6 +42,7 @@ struct Login {
 struct LoginView: View {
   @Bindable var store: StoreOf<Login>
   @EnvironmentObject var vm: UserAuthModel
+  @EnvironmentObject var sessionStore: SessionStore
   
   var body: some View {
     container
@@ -66,7 +68,7 @@ struct LoginView: View {
       Spacer()
       // Login Button
       Button(action: {
-        // Perform login action
+        signIn()
       }) {
         Text("Login")
           .frame(maxWidth: .infinity)
@@ -102,15 +104,23 @@ struct LoginView: View {
           .frame(maxWidth: .infinity)
           .padding(.horizontal, 40)
       }
-      
-//      NavigationLink(destination: FeedView(), isActive: self.$vm.isLoggedIn) {
-//        EmptyView()
-//      }
-//      .hidden()
     }
     .padding()
     .fullScreenCover(isPresented: $vm.isLoggedIn) {
       FeedView(store: store.scope(state: \.feed, action: \.feed))
+    }
+    
+    .fullScreenCover(isPresented: $sessionStore.isLoggedIn) {
+      FeedView(store: store.scope(state: \.feed, action: \.feed))
+    }
+  }
+  
+  func signIn() {
+    sessionStore.signIn(email: store.email, password: store.password) { (profile, error) in
+      if let error = error {
+        print("Error when signing up: \(error)")
+        return
+      }
     }
   }
   

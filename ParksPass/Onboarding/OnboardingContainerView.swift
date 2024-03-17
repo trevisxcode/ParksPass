@@ -45,7 +45,10 @@ struct OnboardingContainerView: View {
             isFirstAppLaunch = false
           }
       } else {
-        LoginView(store: store.scope(state: \.login, action: \.login))
+        LoginView(store: Store(initialState: Login.State()) {
+          Login()
+        })
+//        LoginView(store: store.scope(state: \.login, action: \.login))
       }
     }
   }

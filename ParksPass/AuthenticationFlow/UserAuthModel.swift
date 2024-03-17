@@ -2,6 +2,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 import GoogleSignIn
 
 class UserAuthModel: ObservableObject {
@@ -38,6 +39,13 @@ class UserAuthModel: ObservableObject {
       self.fullName = ""
     }
   }
+  
+//  func signUp() {
+//    Auth.auth().crea
+//    Auth.auth().createUser(withEmail: "", password: "") { authResult, error in
+//    }
+
+//  }
   
   func signIn() {
     guard

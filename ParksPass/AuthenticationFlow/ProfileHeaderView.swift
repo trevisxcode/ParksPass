@@ -11,16 +11,20 @@ struct ProfileHeader {
     var imageUrl: URL? = nil
     var isProfilePresented = false
     var isLoginPresented = false
+    var isEmailProfilePresented = false
   }
   
   enum Action: BindableAction {
     case binding(BindingAction<State>)
     case viewIsReady(UserAuthModel)
+    case viewForSessionStore(SessionStore)
     case profileDidTap
     case profileDidDismiss
     case loginDidTap
     case loginDidDismiss
     case signInDidTap
+    case emailProfileDidTap
+    case emailProfileDidDismiss
   }
   
   var body: some ReducerOf<Self> {
@@ -32,6 +36,12 @@ struct ProfileHeader {
         return .none
       case .profileDidDismiss:
         state.isProfilePresented = false
+        return .none
+      case .emailProfileDidTap:
+        state.isEmailProfilePresented = true
+        return .none
+      case .emailProfileDidDismiss:
+        state.isEmailProfilePresented = false
         return .none
       case .loginDidTap:
         state.isLoginPresented = true
@@ -50,7 +60,20 @@ struct ProfileHeader {
         }
         
         return .none
+      case .viewForSessionStore(let sessionStore):
+        guard state.imageUrl == nil else { return .none }
+        
+        if let profile = sessionStore.profile {
+          state.text = "Hey, \(profile.firstName)"
+          state.imageUrl = nil
+        } else {
+          state.text = "ParksPass"
+          state.imageUrl = nil
+        }
+        
+        return .none
       }
+      
     }
   }
 }
@@ -58,11 +81,12 @@ struct ProfileHeader {
 struct ProfileHeaderView: View {
   @Bindable var store: StoreOf<ProfileHeader>
   @EnvironmentObject var vm: UserAuthModel
-  
+  @EnvironmentObject var sessionStore: SessionStore
+
   var body: some View {
     VStack {
       HStack {
-        Text(store.text)// "Hey, \(vm.givenName)")
+        Text(store.text)
           .fontWeight(.heavy)
           .foregroundColor(.black)
         
@@ -82,7 +106,7 @@ struct ProfileHeaderView: View {
             .frame(width: 44, height: 44)
             .clipShape(Circle())
             .onTapGesture {
-              store.send(.loginDidTap)
+              store.send(.emailProfileDidTap)
             }
         }
       }.padding(.horizontal)
@@ -92,18 +116,17 @@ struct ProfileHeaderView: View {
         .frame(height: 1)
     }.onAppear {
       store.send(.viewIsReady(vm))
+      store.send(.viewForSessionStore(sessionStore))
     }
     .sheet(isPresented: $store.isProfilePresented, onDismiss: {
       store.send(.profileDidDismiss)
     }) {
       ProfileDetailView()
     }
-    .sheet(isPresented: $store.isLoginPresented, onDismiss: {
-      store.send(.loginDidDismiss)
+    .sheet(isPresented: $store.isEmailProfilePresented, onDismiss: {
+      store.send(.emailProfileDidDismiss)
     }) {
-      LoginView(store: Store(initialState: Login.State()) {
-        Login()
-      })
+      EmailProfileDetailView()
     }
   }
 }
