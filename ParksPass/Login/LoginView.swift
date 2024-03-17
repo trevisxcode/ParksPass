@@ -1,7 +1,5 @@
 // @copyright ParksPass by TrevisXcode
 
-import Foundation
-
 import SwiftUI
 import ComposableArchitecture
 
@@ -9,18 +7,92 @@ import ComposableArchitecture
 struct Login {
   @ObservableState
   struct State: Equatable {
-    var text = "Login"
+    var email = ""
+    var password = ""
+    var register = Register.State()
   }
   
-  enum Action {
+  enum Action: BindableAction {
+    case binding(BindingAction<State>)
     case login
+    case register(Register.Action)
+  }
+  
+  var body: some ReducerOf<Self> {
+    Scope(state: \.register, action: \.register) {
+      Register()
+    }
+    Reduce { state, action in
+      switch action {
+      case .binding(_): return .none
+      case .login: return .none
+      case .register(_): return .none
+      }
+    }
   }
 }
 
 struct LoginView: View {
-  let store: StoreOf<Login>
+  @Bindable var store: StoreOf<Login>
   
   var body: some View {
-    Text(store.text)
-  }
+      VStack {
+        Text("Sign In")
+          .font(.title)
+          .padding(.top, 36)
+        Text("Log in and access your personalized ParkPass experience")
+          .frame(maxWidth: .infinity, alignment: .center)
+        TextField("Email", text: $store.email)
+          .padding()
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .autocapitalization(.none)
+          .keyboardType(.emailAddress)
+        
+        SecureField("Password", text: $store.password)
+          .padding()
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+        
+        Spacer()
+        // Login Button
+        Button(action: {
+          // Perform login action
+        }) {
+          Text("Login")
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(24)
+        }
+        .padding(.horizontal, 40)
+        
+        Text("Or")
+          .font(.caption)
+        
+        // Sign in with Google Button
+        Button(action: {
+          // Perform Google sign-in action
+        }) {
+          Text("Sign in with Google")
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.red)
+            .foregroundColor(.white)
+            .cornerRadius(24)
+        }
+        .padding(.horizontal, 40)
+        
+        NavigationLink(
+          destination: RegisterView(
+            store: store.scope(state: \.register, action: \.register)
+          )
+        ) {
+          Text("Don't have an account? Sign up")
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 40)
+        }
+      }
+      .padding()
+    }
+//  }
 }

@@ -33,13 +33,15 @@ struct OnboardingContainerView: View {
   let store: StoreOf<OnboardingContainer>
   
   var body: some View {
-    if isFirstAppLaunch {
-      OnboardingView(store: store.scope(state: \.onboarding, action: \.onboarding))
-        .onDisappear {
-          isFirstAppLaunch = false
-        }
-    } else {
-      LoginView(store: store.scope(state: \.login, action: \.login))
+    NavigationView {
+      if isFirstAppLaunch {
+        OnboardingView(store: store.scope(state: \.onboarding, action: \.onboarding))
+          .onDisappear {
+            isFirstAppLaunch = false
+          }
+      } else {
+        LoginView(store: store.scope(state: \.login, action: \.login))
+      }
     }
   }
 }
