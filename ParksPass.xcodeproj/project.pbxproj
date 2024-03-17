@@ -28,6 +28,7 @@
 		169513C02BA6B330004A11D5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */; };
 		169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */; };
 		169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C52BA6B58C004A11D5 /* FeedCardView.swift */; };
+		169513C82BA6DCC1004A11D5 /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513C72BA6DCC1004A11D5 /* ProfileDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		169513C52BA6B58C004A11D5 /* FeedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardView.swift; sourceTree = "<group>"; };
+		169513C72BA6DCC1004A11D5 /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +127,7 @@
 			children = (
 				169513B32BA6862C004A11D5 /* Info.plist */,
 				169513BA2BA68E5E004A11D5 /* Feed */,
-				1695139A2BA64B2C004A11D5 /* Login */,
+				1695139A2BA64B2C004A11D5 /* AuthenticationFlow */,
 				169513922BA61B09004A11D5 /* Onboarding */,
 				1695139D2BA64E40004A11D5 /* Resource */,
 				169513652BA618D0004A11D5 /* ParksPassApp.swift */,
@@ -169,14 +171,16 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		1695139A2BA64B2C004A11D5 /* Login */ = {
+		1695139A2BA64B2C004A11D5 /* AuthenticationFlow */ = {
 			isa = PBXGroup;
 			children = (
+				169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */,
+				169513C72BA6DCC1004A11D5 /* ProfileDetailView.swift */,
 				1695139B2BA64B39004A11D5 /* LoginView.swift */,
 				169513A32BA66EEF004A11D5 /* RegisterView.swift */,
 				169513B62BA68820004A11D5 /* UserAuthModel.swift */,
 			);
-			path = Login;
+			path = AuthenticationFlow;
 			sourceTree = "<group>";
 		};
 		1695139D2BA64E40004A11D5 /* Resource */ = {
@@ -195,7 +199,6 @@
 				169513BD2BA68E77004A11D5 /* FeedView.swift */,
 				169513C52BA6B58C004A11D5 /* FeedCardView.swift */,
 				169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */,
-				169513BF2BA6B330004A11D5 /* ProfileHeaderView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				169513B72BA68820004A11D5 /* UserAuthModel.swift in Sources */,
 				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
 				169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */,
+				169513C82BA6DCC1004A11D5 /* ProfileDetailView.swift in Sources */,
 				169513A42BA66EEF004A11D5 /* RegisterView.swift in Sources */,
 				169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */,
 				1695139F2BA64E50004A11D5 /* Asset.swift in Sources */,

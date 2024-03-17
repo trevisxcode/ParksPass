@@ -11,11 +11,13 @@ struct OnboardingContainer {
   struct State: Equatable {
     var onboarding = OnboardingReducer.State()
     var login = Login.State()
+    var feed = Feed.State()
   }
   
   enum Action {
     case onboarding(OnboardingReducer.Action)
     case login(Login.Action)
+    case feed(Feed.Action)
   }
   
   var body: some Reducer<State, Action> {
@@ -24,6 +26,9 @@ struct OnboardingContainer {
     }
     Scope(state: \.login, action: \.login) {
       Login()
+    }
+    Scope(state: \.feed, action: \.feed) {
+      Feed()
     }
   }
 }

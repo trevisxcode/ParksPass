@@ -8,7 +8,7 @@ import GoogleSignIn
 @main
 struct ParksPassApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  @StateObject var userAuth: UserAuthModel =  UserAuthModel()
+  @StateObject var userAuth: UserAuthModel = UserAuthModel()
   
   var body: some Scene {
     WindowGroup {

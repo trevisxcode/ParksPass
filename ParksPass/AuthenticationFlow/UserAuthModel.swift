@@ -7,6 +7,7 @@ import GoogleSignIn
 class UserAuthModel: ObservableObject {
   
   @Published var givenName: String = ""
+  @Published var fullName: String = ""
   @Published var profilePicUrl: String = ""
   @Published var isLoggedIn: Bool = false
   @Published var errorMessage: String = ""
@@ -23,15 +24,18 @@ class UserAuthModel: ObservableObject {
   
   func checkStatus() {
     if let user = GIDSignIn.sharedInstance.currentUser {
-      let givenName = user.profile?.givenName
+      let givenName = user.profile?.givenName ?? ""
+      let familyName = user.profile?.familyName ?? ""
       let profilePicUrl = user.profile!.imageURL(withDimension: 100)!.absoluteString
-      self.givenName = givenName ?? ""
+      self.givenName = givenName
+      self.fullName = "\(givenName) \(familyName)"
       self.profilePicUrl = profilePicUrl
       self.isLoggedIn = true
     } else {
       self.isLoggedIn = false
       self.givenName = "Not Logged In"
-      self.profilePicUrl =  ""
+      self.profilePicUrl = ""
+      self.fullName = ""
     }
   }
   
@@ -51,6 +55,7 @@ class UserAuthModel: ObservableObject {
       if let error = error {
         self.errorMessage = "error: \(error.localizedDescription)"
       }
+      
       self.checkStatus()
     }
   }
