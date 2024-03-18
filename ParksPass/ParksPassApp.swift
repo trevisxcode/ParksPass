@@ -13,6 +13,7 @@ struct ParksPassApp: App {
   
   var body: some Scene {
     WindowGroup {
+//      FeedDetailView()
       OnboardingContainerView(store: Store(initialState: OnboardingContainer.State()) {
         OnboardingContainer()
       })

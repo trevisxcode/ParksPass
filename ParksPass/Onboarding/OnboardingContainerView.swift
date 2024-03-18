@@ -48,7 +48,6 @@ struct OnboardingContainerView: View {
         LoginView(store: Store(initialState: Login.State()) {
           Login()
         })
-//        LoginView(store: store.scope(state: \.login, action: \.login))
       }
     }
   }

@@ -70,7 +70,6 @@ struct RegisterView: View {
         .textFieldStyle(RoundedBorderTextFieldStyle())
       
       Spacer()
-      // Login Button
       Button(action: {
         signUp()
       }) {

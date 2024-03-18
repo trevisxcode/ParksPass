@@ -88,7 +88,6 @@ struct ProfileHeaderView: View {
       HStack {
         Text(store.text)
           .fontWeight(.heavy)
-          .foregroundColor(.black)
         
         Spacer()
         

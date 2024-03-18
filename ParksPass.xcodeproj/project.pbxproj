@@ -33,6 +33,8 @@
 		169513CC2BA6F5E6004A11D5 /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CB2BA6F5E6004A11D5 /* UserProfileRepository.swift */; };
 		169513CE2BA6F674004A11D5 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CD2BA6F674004A11D5 /* SessionStore.swift */; };
 		169513D02BA77629004A11D5 /* EmailProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */; };
+		169513D22BA78209004A11D5 /* FeedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513D12BA78209004A11D5 /* FeedDetailView.swift */; };
+		169513D42BA833B9004A11D5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513D32BA833B9004A11D5 /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		169513CB2BA6F5E6004A11D5 /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
 		169513CD2BA6F674004A11D5 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailProfileDetailView.swift; sourceTree = "<group>"; };
+		169513D12BA78209004A11D5 /* FeedDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailView.swift; sourceTree = "<group>"; };
+		169513D32BA833B9004A11D5 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,9 +211,11 @@
 		169513BA2BA68E5E004A11D5 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				169513D32BA833B9004A11D5 /* Article.swift */,
 				169513BD2BA68E77004A11D5 /* FeedView.swift */,
 				169513C52BA6B58C004A11D5 /* FeedCardView.swift */,
 				169513C12BA6B4E5004A11D5 /* AsyncImageView.swift */,
+				169513D12BA78209004A11D5 /* FeedDetailView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -358,8 +364,10 @@
 			files = (
 				169513942BA61B15004A11D5 /* OnboardingView.swift in Sources */,
 				169513BE2BA68E77004A11D5 /* FeedView.swift in Sources */,
+				169513D42BA833B9004A11D5 /* Article.swift in Sources */,
 				169513A12BA64E5F004A11D5 /* Images.swift in Sources */,
 				169513B72BA68820004A11D5 /* UserAuthModel.swift in Sources */,
+				169513D22BA78209004A11D5 /* FeedDetailView.swift in Sources */,
 				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
 				169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */,
 				169513C82BA6DCC1004A11D5 /* ProfileDetailView.swift in Sources */,
