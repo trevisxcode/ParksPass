@@ -7,12 +7,14 @@ import ComposableArchitecture
 struct Feed {
   @ObservableState
   struct State: Equatable {
-    var text = "dd"
     var profileHeader = ProfileHeader.State()
     var feedCards: IdentifiedArrayOf<FeedCard.State> = [
-      FeedCard.State(imageName: Asset.Image.onboarding1.rawValue),
-      FeedCard.State(imageName: Asset.Image.onboarding2.rawValue),
-      FeedCard.State(imageName: Asset.Image.onboarding3.rawValue),
+      FeedCard.State(article: Article.article1),
+      FeedCard.State(article: Article.article2),
+      FeedCard.State(article: Article.article3),
+      FeedCard.State(article: Article.article4),
+      FeedCard.State(article: Article.article5),
+      FeedCard.State(article: Article.article6),
     ]
   }
   
@@ -44,9 +46,8 @@ struct FeedView: View {
             ForEach(store.scope(state: \.feedCards, action: \.feedCards)) { store in
               FeedCardView(store: store)
             }
-          }
+          }.padding()
         }
-        .padding()
       }
     }
   }

@@ -66,7 +66,6 @@ struct LoginView: View {
         .textFieldStyle(RoundedBorderTextFieldStyle())
       
       Spacer()
-      // Login Button
       Button(action: {
         signIn()
       }) {
@@ -82,7 +81,6 @@ struct LoginView: View {
       Text("Or")
         .font(.caption)
       
-      // Sign in with Google Button
       Button(action: {
         vm.signIn()
       }) {

@@ -8,20 +8,40 @@ struct FeedCard {
   @ObservableState
   struct State: Equatable, Identifiable {
     var id: String { imageName }
-    var imageName = Asset.Image.onboarding1.rawValue
-    var title = ""
-    var subtitle = ""
+    var article = Article.article1
+    
+    var imageName: String {
+      article.imageBanner
+    }
+    var title: String {
+      article.title
+    }
+    var subtitle: String {
+      article.location
+    }
+    var isVisited: Bool {
+      StorageContainer.shared.loadElements()
+        .first(where: { $0.id == article.id })?.isVisited ?? false
+    }
   }
 }
 
 struct FeedCardView: View {
   
   @Bindable var store: StoreOf<FeedCard>
-//  var viewModel: Model
   @State var isPresented = false
   
   var body: some View {
-    NavigationLink(destination: Text("TT")) {
+    NavigationLink(
+      destination: FeedDetailView(
+        store: Store(
+          initialState: FeedDetail.State(article: store.article, isVisited: StorageContainer.shared.loadElements()
+            .first(where: { $0.id == store.article.id })?.isVisited ?? false)
+        ) {
+          FeedDetail()
+        }
+      )
+    ) {
       Content()
     }
     .buttonStyle(ScaledButtonStyle())
@@ -29,19 +49,22 @@ struct FeedCardView: View {
   
   func Content() -> some View {
     ZStack(alignment: .bottomLeading) {
-      Image(store.imageName)
-        .resizable()
-        .aspectRatio(contentMode: .fill)
-        .frame(height: 200)
-        .overlay(
-          LinearGradient(
-            gradient: Gradient(colors: [Color.black, .clear, .clear, .clear]),
-            startPoint: .bottom,
-            endPoint: .top
+      
+      GeometryReader { geometry in
+        Image(store.imageName)
+          .resizable()
+          .aspectRatio(contentMode: .fill)
+          .frame(width: geometry.size.width, height: 200)
+          .overlay(
+            LinearGradient(
+              gradient: Gradient(colors: [Color.black, .clear, .clear, .clear]),
+              startPoint: .bottom,
+              endPoint: .top
+            )
+            .opacity(Constant.opacity)
           )
-          .opacity(Constant.opacity)
-        )
-        .clipped()
+          .clipped()
+      }
       
       VStack(spacing: -4) {
         Text(store.title)
@@ -56,6 +79,7 @@ struct FeedCardView: View {
       .padding(.horizontal, 24)
       .padding(.bottom, 18)
     }
+    .frame(height: 200)
     .cornerRadius(Constant.cornerRadius)
   }
 }

@@ -39,14 +39,7 @@ class UserAuthModel: ObservableObject {
       self.fullName = ""
     }
   }
-  
-//  func signUp() {
-//    Auth.auth().crea
-//    Auth.auth().createUser(withEmail: "", password: "") { authResult, error in
-//    }
 
-//  }
-  
   func signIn() {
     guard
       let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

@@ -79,10 +79,8 @@ struct OnboardingView: View {
           Image(store.onboardingPages[index].image)
             .resizable()
             .aspectRatio(contentMode: .fill)
-//            .cornerRadius(20)
             .edgesIgnoringSafeArea(.all)
-//            .offset(y: 50)
-          
+
           bottomCard(index: index)
             .offset(y: -54)
           
@@ -94,19 +92,16 @@ struct OnboardingView: View {
           } label: {
             Text(store.onboardingPages[index].buttonText)
               .frame(height: 48)
-              .frame(maxWidth: .infinity) // Set the minimum height to 48 and make the text fill the available width
-              .background(Color.red) // Set the background color to red
-              .foregroundColor(.white) // Set the text color to white
-              .cornerRadius(20) // Set the corner radius to 20
+              .frame(maxWidth: .infinity)
+              .background(Color.red)
+              .foregroundColor(.white)
+              .cornerRadius(20)
           }.padding([.leading, .trailing, .bottom])
         }
         .tag(index)
       }
     }
     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-//    .sheet(item: $store.scope(state: \.login, action: \.login)) { store in
-//      LoginView(store: store)
-//    }
     .edgesIgnoringSafeArea(.all)
     .background(Color.black.edgesIgnoringSafeArea(.all))
 
