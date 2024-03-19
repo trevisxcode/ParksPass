@@ -93,8 +93,8 @@ struct OnboardingView: View {
             Text(store.onboardingPages[index].buttonText)
               .frame(height: 48)
               .frame(maxWidth: .infinity)
-              .background(Color.red)
-              .foregroundColor(.white)
+              .background(Color.yellow)
+              .foregroundColor(.black)
               .cornerRadius(20)
           }.padding([.leading, .trailing, .bottom])
         }
