@@ -22,7 +22,7 @@ struct Article: Equatable {
 
 extension Article {
   static let article1 = Article(
-    id: "1",
+    id: "article-1",
     imageBanner: Asset.Image.article11.rawValue,
     title: "Disneyland Resort",
     location: "California, USA",
@@ -40,7 +40,7 @@ extension Article {
   )
   
   static let article2 = Article(
-    id: "2",
+    id: "article-2",
     imageBanner: Asset.Image.article21.rawValue,
     title: "Walt Disney World Resort",
     location: "Florida, USA",
@@ -58,7 +58,7 @@ extension Article {
   )
   
   static let article3 = Article(
-    id: "3",
+    id: "article-3",
     imageBanner: Asset.Image.article31.rawValue,
     title: "Tokyo Disney Resort",
     location: "Tokyo, Japan",
@@ -76,7 +76,7 @@ extension Article {
   )
   
   static let article4 = Article(
-    id: "4",
+    id: "article-4",
     imageBanner: Asset.Image.article41.rawValue,
     title: "Disneyland Paris",
     location: "Paris, France",
@@ -94,7 +94,7 @@ extension Article {
   )
   
   static let article5 = Article(
-    id: "5",
+    id: "article-5",
     imageBanner: Asset.Image.article51.rawValue,
     title: "Disneyland Hong Kong",
     location: "Hong Kong",
@@ -112,7 +112,7 @@ extension Article {
   )
   
   static let article6 = Article(
-    id: "6",
+    id: "article-6",
     imageBanner: Asset.Image.article61.rawValue,
     title: "Shanghai Disneyland",
     location: "Shanghai, China",

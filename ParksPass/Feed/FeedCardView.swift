@@ -19,6 +19,10 @@ struct FeedCard {
     var subtitle: String {
       article.location
     }
+    var isVisited: Bool {
+      StorageContainer.shared.loadElements()
+        .first(where: { $0.id == article.id })?.isVisited ?? false
+    }
   }
 }
 
@@ -31,7 +35,8 @@ struct FeedCardView: View {
     NavigationLink(
       destination: FeedDetailView(
         store: Store(
-          initialState: FeedDetail.State(article: store.article)
+          initialState: FeedDetail.State(article: store.article, isVisited: StorageContainer.shared.loadElements()
+            .first(where: { $0.id == store.article.id })?.isVisited ?? false)
         ) {
           FeedDetail()
         }

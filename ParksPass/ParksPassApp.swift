@@ -10,6 +10,7 @@ struct ParksPassApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
   @StateObject var userAuth: UserAuthModel = UserAuthModel()
   @StateObject var sessionStore: SessionStore = SessionStore()
+  @StateObject var storage: StorageContainer = StorageContainer()
   
   var body: some Scene {
     WindowGroup {

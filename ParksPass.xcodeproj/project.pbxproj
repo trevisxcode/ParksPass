@@ -35,6 +35,9 @@
 		169513D02BA77629004A11D5 /* EmailProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */; };
 		169513D22BA78209004A11D5 /* FeedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513D12BA78209004A11D5 /* FeedDetailView.swift */; };
 		169513D42BA833B9004A11D5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513D32BA833B9004A11D5 /* Article.swift */; };
+		169513D82BA91F05004A11D5 /* Parks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 169513D62BA91F05004A11D5 /* Parks.xcdatamodeld */; };
+		169513DA2BA92037004A11D5 /* StorageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513D92BA92037004A11D5 /* StorageContainer.swift */; };
+		169513DC2BA92324004A11D5 /* ParksCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169513DB2BA92324004A11D5 /* ParksCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		169513CF2BA77629004A11D5 /* EmailProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailProfileDetailView.swift; sourceTree = "<group>"; };
 		169513D12BA78209004A11D5 /* FeedDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailView.swift; sourceTree = "<group>"; };
 		169513D32BA833B9004A11D5 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		169513D72BA91F05004A11D5 /* Parks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Parks.xcdatamodel; sourceTree = "<group>"; };
+		169513D92BA92037004A11D5 /* StorageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageContainer.swift; sourceTree = "<group>"; };
+		169513DB2BA92324004A11D5 /* ParksCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				169513B32BA6862C004A11D5 /* Info.plist */,
+				169513D52BA91DD8004A11D5 /* CoreData */,
 				169513BA2BA68E5E004A11D5 /* Feed */,
 				1695139A2BA64B2C004A11D5 /* AuthenticationFlow */,
 				169513922BA61B09004A11D5 /* Onboarding */,
@@ -218,6 +225,16 @@
 				169513D12BA78209004A11D5 /* FeedDetailView.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		169513D52BA91DD8004A11D5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				169513D62BA91F05004A11D5 /* Parks.xcdatamodeld */,
+				169513D92BA92037004A11D5 /* StorageContainer.swift */,
+				169513DB2BA92324004A11D5 /* ParksCore.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				169513942BA61B15004A11D5 /* OnboardingView.swift in Sources */,
+				169513DC2BA92324004A11D5 /* ParksCore.swift in Sources */,
 				169513BE2BA68E77004A11D5 /* FeedView.swift in Sources */,
 				169513D42BA833B9004A11D5 /* Article.swift in Sources */,
 				169513A12BA64E5F004A11D5 /* Images.swift in Sources */,
@@ -371,6 +389,7 @@
 				169513992BA6437A004A11D5 /* OnboardingContainerView.swift in Sources */,
 				169513C22BA6B4E5004A11D5 /* AsyncImageView.swift in Sources */,
 				169513C82BA6DCC1004A11D5 /* ProfileDetailView.swift in Sources */,
+				169513DA2BA92037004A11D5 /* StorageContainer.swift in Sources */,
 				169513A42BA66EEF004A11D5 /* RegisterView.swift in Sources */,
 				169513C62BA6B58C004A11D5 /* FeedCardView.swift in Sources */,
 				1695139F2BA64E50004A11D5 /* Asset.swift in Sources */,
@@ -379,6 +398,7 @@
 				169513C02BA6B330004A11D5 /* ProfileHeaderView.swift in Sources */,
 				1695139C2BA64B39004A11D5 /* LoginView.swift in Sources */,
 				169513D02BA77629004A11D5 /* EmailProfileDetailView.swift in Sources */,
+				169513D82BA91F05004A11D5 /* Parks.xcdatamodeld in Sources */,
 				169513662BA618D0004A11D5 /* ParksPassApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,6 +780,20 @@
 			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		169513D62BA91F05004A11D5 /* Parks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				169513D72BA91F05004A11D5 /* Parks.xcdatamodel */,
+			);
+			currentVersion = 169513D72BA91F05004A11D5 /* Parks.xcdatamodel */;
+			name = Parks.xcdatamodeld;
+			path = /Users/professor/Documents/trevis/workspace/ParksPass/ParksPass/CoreData/Parks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1695135A2BA618D0004A11D5 /* Project object */;
 }

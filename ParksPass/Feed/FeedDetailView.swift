@@ -9,6 +9,7 @@ struct FeedDetail {
   @ObservableState
   struct State {
     var article = Article()
+    var isVisited = false
     
     var locationCoordinate: CLLocationCoordinate2D {
       CLLocationCoordinate2D(latitude: article.latitude, longitude: article.longitude)
@@ -24,6 +25,11 @@ struct FeedDetail {
     var annotations: [Landmark] {
       [Landmark(coordinate: locationCoordinate)]
     }
+    
+//    var isVisited: Bool {
+//      StorageContainer.shared.loadElements()
+//        .first(where: { $0.id == article.id })?.isVisited ?? false
+//    }
   }
   
   enum Action: BindableAction {
@@ -62,13 +68,36 @@ struct FeedDetailView: View {
   
   private func ParkSummaryTextView() -> some View {
     VStack(spacing: -4) {
-      Text(store.article.title)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .font(.title2)
-        .bold()
+      HStack {
+        VStack(spacing: -4) {
+          Text(store.article.title)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.title2)
+            .bold()
+          
+          Text(store.article.location)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        
+        Button {
+          store.isVisited.toggle()
+          if var park = StorageContainer.shared.loadElements()
+            .first(where: { $0.id == store.article.id }) {
+            park.isVisited.toggle()
+            StorageContainer.shared.update(parks: park)
+          } else {
+            StorageContainer.shared.addElement(id: store.article.id, isVisited: true)
+          }
+//          ?.isVisited ?? false
+//          store.send(.visitDidTap())
+        } label: {
+          Image(systemName: store.isVisited ? "checkmark.square" : "square")
+            .resizable()
+            .frame(width: 22, height: 22)
+        }
+        .buttonStyle(.plain)
+      }
       
-      Text(store.article.location)
-        .frame(maxWidth: .infinity, alignment: .leading)
       
       Text(store.article.text1)
         .frame(maxWidth: .infinity, alignment: .leading)
